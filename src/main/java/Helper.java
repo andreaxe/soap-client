@@ -83,7 +83,7 @@ class Helper {
         // todo (1) marketRole.setType accepts MarketRoleKindString as param -
         //  cannot use MarketRoleKindString.SYSTEM_OPERATOR because it´s an ENUM.
         // marketRole.setType(MarketRoleKindString.SYSTEM_OPERATOR);
-        // add to create an instance of MarketRoleKindString to be accepted
+        // had to create an instance of MarketRoleKindString to be accepted as parameter but the generated object is a empty MartketRole.
         marketRole.setType(MarketRoleKindString.Factory.newInstance());
         marketParticipant.setMarketRole(marketRole);
 
