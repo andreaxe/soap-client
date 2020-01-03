@@ -1,0 +1,77 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:reac="tdxassist.edf.rd.iop/ReactivePowerSetpointMessage" xmlns:mes="http://iec.ch/TC57/2011/schema/message" xmlns:reac1="tdxassist.edf.rd.iop/ReactivePowerSetpoint_">
+    <soapenv:Header/>
+    <soapenv:Body>
+        <reac:CreateReactivePowerSetpoint>
+            <reac:Header>
+                <mes:Verb>create</mes:Verb>
+                <mes:Noun>ReactivePowerSetpoint</mes:Noun>
+                <mes:Source>SoapUI</mes:Source>
+                <mes:MessageID>151968eb-c239-4081-a59b-00b65fc3ad78</mes:MessageID>
+                <mes:CorrelationID>3c18a1ba-be5b-46af-8651-d6e158398def</mes:CorrelationID>
+            </reac:Header>
+            <reac:Payload>
+                <ReactivePowerSetpoint_MarketDocument xmlns="tdxassist.edf.rd.iop/ReactivePowerSetpoint_">
+                    <mRID></mRID>
+                    <Period>
+                        <timeInterval>
+                            <start xmlns="">2018-11-01T00:00:00.000+01:00</start>
+                            <end xmlns="">2018-11-02T00:00:00.000+01:00</end>
+                        </timeInterval>
+                    </Period>
+                    <Sender_MarketParticipant>
+                        <mRID xmlns:ns2="tdxassist.edf.rd.iop/DataTypes"
+                              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                              xsi:type="ns2:PartyID_String" codingScheme="EIC">
+
+                        </mRID>
+                        <MarketRole>
+                            <type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                  xsi:type="MarketRoleKind_String">System operator</type>
+                        </MarketRole>
+                    </Sender_MarketParticipant>
+                    <Receiver_MarketParticipant>
+                        <mRID xmlns:ns2="tdxassist.edf.rd.iop/DataTypes" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:PartyID_String" codingScheme="EIC">
+                        </mRID>
+                        <MarketRole>
+                            <type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="MarketRoleKind_String">System operator</type>
+                        </MarketRole>
+                    </Receiver_MarketParticipant>
+                    <Asset_TimeSeries>
+                        <RegisteredResource>
+                            <mRID xmlns:ns2="tdxassist.edf.rd.iop/DataTypes"
+                                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                  xsi:type="ns2:ResourceID_String" codingScheme="EIC">
+                            </mRID>
+                            <PSRType>
+                                <psrType xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                         xsi:type="PsrType_String">Tieline</psrType>
+                            </PSRType>
+                        </RegisteredResource>
+                    </Asset_TimeSeries>
+                    <TimeSeries>
+                        <curveType xmlns:ns2="tdxassist.edf.rd.iop/DataTypes"
+                                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                   xsi:type="ns2:CurveType_String">Sequential fixed size block</curveType>
+                        <product xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                 xsi:type="EnergyProductKind_String">Capacitive reactive power</product>
+                        <Measurement_Unit>
+                            <name xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="MeasurementUnitKind_String">KAR</name>
+                        </Measurement_Unit>
+                        <Period>
+                            <timeInterval>
+                                <start xmlns="">2018-11-03T00:00:00.000+01:00</start>
+                                <end xmlns="">2018-11-04T00:00:00.000+01:00</end>
+                            </timeInterval>
+                            <resolution>P1DT1H</resolution>
+                            <Point>
+                                <position>1</position>
+                                <quantity>1</quantity>
+                            </Point>
+                        </Period>
+                    </TimeSeries>
+                </ReactivePowerSetpoint_MarketDocument>
+
+            </reac:Payload>
+        </reac:CreateReactivePowerSetpoint>
+    </soapenv:Body>
+</soapenv:Envelope>
