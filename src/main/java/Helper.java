@@ -1,6 +1,5 @@
 import ch.iec.tc57._2011.schema.message.HeaderType;
 import datatypes.iop.rd.edf.tdxassist.*;
-import datatypes.iop.rd.edf.tdxassist.MeasurementUnitKindString;
 import enumerations.iop.rd.edf.tdxassist.AssetTypeList;
 import enumerations.iop.rd.edf.tdxassist.CodingSchemeTypeList;
 import enumerations.iop.rd.edf.tdxassist.CurveTypeList;
@@ -9,6 +8,7 @@ import org.apache.xmlbeans.GDurationSpecification;
 import reactivepowersetpoint_.iop.rd.edf.tdxassist.*;
 import reactivepowersetpoint_.iop.rd.edf.tdxassist.EnergyProductKindString;
 import reactivepowersetpoint_.iop.rd.edf.tdxassist.MarketRoleKindString;
+import reactivepowersetpoint_.iop.rd.edf.tdxassist.MeasurementUnitKindString;
 import reactivepowersetpoint_.iop.rd.edf.tdxassist.PsrTypeString;
 import reactivepowersetpointmessage.iop.rd.edf.tdxassist.ReactivePowerSetpointPayloadType;
 
@@ -75,12 +75,15 @@ class Helper {
         // Market Participant
         MarketParticipant marketParticipant = MarketParticipant.Factory.newInstance();
         PartyIDString partyIDString = PartyIDString.Factory.newInstance();
+        // todo this is ok, setCodingScheme is accepting an enum
         partyIDString.setCodingScheme(CodingSchemeTypeList.EIC);
         marketParticipant.setMRID(partyIDString);
 
         MarketRole marketRole = MarketRole.Factory.newInstance();
-        // todo
-
+        // todo (1) marketRole.setType accepts MarketRoleKindString as param -
+        //  cannot use MarketRoleKindString.SYSTEM_OPERATOR because it´s an ENUM.
+        // marketRole.setType(MarketRoleKindString.SYSTEM_OPERATOR);
+        // add to create an instance of MarketRoleKindString to be accepted
         marketRole.setType(MarketRoleKindString.Factory.newInstance());
         marketParticipant.setMarketRole(marketRole);
 
@@ -95,24 +98,25 @@ class Helper {
         registeredResource.setMRID(resourceIDString);
         MktPSRType mktPSRType = MktPSRType.Factory.newInstance();
 
-
-        // todo
+        // todo the same behaviour (1)
         mktPSRType.setPsrType(PsrTypeString.Factory.newInstance());
         registeredResource.setPSRType(mktPSRType);
         assetTimeSeries.setRegisteredResource(registeredResource);
         reactivePowerSetpointMarketDocumentType.setAssetTimeSeries(assetTimeSeries);
 
         ReactivePowerTimeSeries reactivePowerTimeSeries = ReactivePowerTimeSeries.Factory.newInstance();
-        // todo
-        //CurveTypeList.Enum curveTypeList = (CurveTypeList.SEQUENTIAL_FIXED_SIZE_BLOCK;
+        // todo the same behaviour (1)
+        // reactivePowerTimeSeries.setCurveType(CurveTypeString.SEQUENTIAL_FIXED_SIZE_BLOCK);
         reactivePowerTimeSeries.setCurveType(CurveTypeString.Factory.newInstance());
-        // todo
+        // todo the same behaviour (1)
+        // reactivePowerTimeSeries.setProduct(EnergyProductKindString.CAPACITIVE_REACTIVE_POWER);
         reactivePowerTimeSeries.setProduct(EnergyProductKindString.Factory.newInstance());
-        // todo
 
         MeasureUnit measureUnit = MeasureUnit.Factory.newInstance();
         measureUnit.addNewName();
 
+        // todo the same behaviour (1)
+        // measureUnit.setName(MeasurementUnitKindString.KAR);
         reactivePowerTimeSeries.setMeasurementUnit(measureUnit);
         SeriesPeriod seriesPeriod = SeriesPeriod.Factory.newInstance();
 
