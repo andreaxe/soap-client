@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
@@ -9,30 +10,15 @@
     <version>1.0-SNAPSHOT</version>
 
 <dependencies>
-    <!-- https://mvnrepository.com/artifact/es.ree.eemws/eemws-core -->
-  <!--  <dependency>
-        <groupId>es.ree.eemws</groupId>
-        <artifactId>eemws-core</artifactId>
-        <version>1.2.2</version>
-    </dependency>
-    &lt;!&ndash; https://mvnrepository.com/artifact/es.ree.eemws/eemws-utils &ndash;&gt;
+
     <dependency>
-        <groupId>es.ree.eemws</groupId>
-        <artifactId>eemws-utils</artifactId>
-        <version>1.2.2</version>
+        <groupId>inesctec.soap.client</groupId>
+        <artifactId>soap</artifactId>
+        <version>1.0</version>
+        <scope>system</scope>
+        <systemPath>${project.basedir}/libs/ardanssoapclient-1.0.jar</systemPath>
     </dependency>
-    &lt;!&ndash; https://mvnrepository.com/artifact/es.ree.eemws/eemws-client &ndash;&gt;
-    <dependency>
-        <groupId>es.ree.eemws</groupId>
-        <artifactId>eemws-client</artifactId>
-        <version>1.2.2</version>
-    </dependency>
-    &lt;!&ndash; https://mvnrepository.com/artifact/es.ree.eemws/eemws-kit &ndash;&gt;
-    <dependency>
-        <groupId>es.ree.eemws</groupId>
-        <artifactId>eemws-kit</artifactId>
-        <version>1.2.2</version>
-    </dependency>-->
+
     <dependency>
         <groupId>org.apache.ws.commons.axiom</groupId>
         <artifactId>axiom-api</artifactId>
