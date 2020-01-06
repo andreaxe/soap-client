@@ -1,3 +1,5 @@
+package inesctec.soap.client;
+
 import ch.iec.tc57._2011.schema.message.HeaderType;
 import inesctec.pt.ExecuteReactivePowerSetpointStub;
 import inesctec.pt.FaultMessage;
@@ -8,14 +10,16 @@ import reactivepowersetpointmessage.iop.rd.edf.tdxassist.ReactivePowerSetpointRe
 import reactivepowersetpointmessage.iop.rd.edf.tdxassist.ReactivePowerSetpointResponseMessageDocument;
 
 import java.rmi.RemoteException;
-import java.util.Calendar;
 
 public class Main {
+
+    private static final String SUCCESS = "OK";
 
     public static void main(String[] args) throws RemoteException, FaultMessage {
 
         // Stub creation
-        ExecuteReactivePowerSetpointStub stub = new ExecuteReactivePowerSetpointStub();
+        String endpoint = "http://tdxassist.ardans.fr:9090/axis2-1.6.2/services/ExecuteReactivePowerSetpoint?wsdl";
+        ExecuteReactivePowerSetpointStub stub = new ExecuteReactivePowerSetpointStub(endpoint);
 
         try {
             // creation of the request message
@@ -42,7 +46,11 @@ public class Main {
             ReactivePowerSetpointResponseMessageDocument response =
                     stub.createReactivePowerSetpoint(createReactivePowerSetpointDocument);
 
-            System.out.println(response.getReactivePowerSetpointResponseMessage().getReply().getResult());
+            String message = response.getReactivePowerSetpointResponseMessage().getReply().getResult().toString();
+
+            if(Main.SUCCESS.equals(message)){
+                System.out.println("OK!!");
+            }
 
         } catch (AxisFault e) {
             System.out.println(e.getMessage());

@@ -1,3 +1,5 @@
+package inesctec.soap.client;
+
 import ch.iec.tc57._2011.schema.message.HeaderType;
 import datatypes.iop.rd.edf.tdxassist.*;
 import enumerations.iop.rd.edf.tdxassist.AssetTypeList;
